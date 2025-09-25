@@ -57,6 +57,7 @@ type Config struct {
 	SkipCredsValidation            bool
 	SkipRegionValidation           bool
 	SkipRequestingAccountId        bool
+	SQSWaitTimes                   *SQSWaitTimesConfig
 	STSRegion                      string
 	SuppressDebugLog               bool
 	TagPolicyConfig                *tftags.TagPolicyConfig
@@ -66,6 +67,11 @@ type Config struct {
 	UseDualStackEndpoint           bool
 	UseFIPSEndpoint                bool
 	UserAgent                      awsbase.UserAgentProducts
+}
+
+type SQSWaitTimesConfig struct {
+	CreateContinuousTargetOccurrence int
+	DeleteContinuousTargetOccurrence int
 }
 
 // ConfigureProvider configures the provided provider Meta (instance data).
@@ -240,6 +246,7 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS
 	client.s3OriginalRegion = c.S3OriginalRegion
 	client.s3UsePathStyle = c.S3UsePathStyle
 	client.s3USEast1RegionalEndpoint = c.S3USEast1RegionalEndpoint
+	client.sqsWaitTimes = c.SQSWaitTimes
 	client.stsRegion = c.STSRegion
 
 	return client, diags
