@@ -246,7 +246,7 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS
 	client.s3OriginalRegion = c.S3OriginalRegion
 	client.s3UsePathStyle = c.S3UsePathStyle
 	client.s3USEast1RegionalEndpoint = c.S3USEast1RegionalEndpoint
-	client.sqsWaitTimes = c.SQSWaitTimes
+	client.SQSWaitTimes = c.SQSWaitTimes
 	client.stsRegion = c.STSRegion
 
 	return client, diags

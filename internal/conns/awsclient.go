@@ -45,7 +45,7 @@ type AWSClient struct {
 	s3OriginalRegion          string              // Original region for S3-compatible storage
 	s3UsePathStyle            bool                // From provider configuration.
 	s3USEast1RegionalEndpoint string              // From provider configuration.
-	sqsWaitTimes              *SQSWaitTimesConfig // From provider configuration.
+	SQSWaitTimes              *SQSWaitTimesConfig // From provider configuration.
 	stsRegion                 string              // From provider configuration.
 	tagPolicyConfig           *tftags.TagPolicyConfig
 	terraformVersion          string              // From provider configuration.
